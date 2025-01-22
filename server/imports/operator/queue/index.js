@@ -109,7 +109,7 @@ queue.prototype.run = async function () {
 	const jobDoc = await self.grabDoc();
 
 	if (jobDoc) {
-		execute(jobDoc, function () {
+		await execute(jobDoc, function () {
 			self.available = true;
 			self.trigger().finally()
 		});
